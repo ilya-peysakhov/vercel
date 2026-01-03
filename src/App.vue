@@ -2,50 +2,35 @@
 import { ref, computed } from 'vue'
 import { Line } from 'vue-chartjs'
 import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  LineElement,
-  LinearScale,
-  PointElement,
-  CategoryScale
+  Chart as ChartJS, Title, Tooltip, Legend, LineElement, LinearScale, PointElement, CategoryScale
 } from 'chart.js'
 
 ChartJS.register(Title, Tooltip, Legend, LineElement, LinearScale, PointElement, CategoryScale)
 
-const dataPoints = ref([10, 25, 45, 30, 60])
-const labels = ref(['Jan', 'Feb', 'Mar', 'Apr', 'May'])
+const dataPoints = ref([10, 20, 30])
+const labels = ref(['A', 'B', 'C'])
 
 const chartData = computed(() => ({
   labels: labels.value,
   datasets: [{
-    label: 'Learning Progress',
+    label: 'Data',
     backgroundColor: '#42b883',
-    borderColor: '#42b883',
-    data: dataPoints.value,
-    tension: 0.3
+    data: dataPoints.value
   }]
 }))
 
 const addData = () => {
-  labels.value.push('New')
-  dataPoints.value.push(Math.floor(Math.random() * 100))
+  labels.value.push('D')
+  dataPoints.value.push(50)
 }
 </script>
 
 <template>
-  <div class="container">
-    <h1>Vue + Chart.js on Vercel</h1>
-    <button @click="addData">Add Random Data</button>
-    <div class="chart-box">
+  <div style="text-align: center; font-family: sans-serif;">
+    <h1>Vue Chart App</h1>
+    <button @click="addData">Add Data</button>
+    <div style="max-width: 500px; margin: auto;">
       <Line :data="chartData" />
     </div>
   </div>
 </template>
-
-<style>
-.container { font-family: sans-serif; text-align: center; padding: 20px; }
-button { background: #42b883; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-.chart-box { max-width: 600px; margin: 20px auto; height: 400px; }
-</style>
