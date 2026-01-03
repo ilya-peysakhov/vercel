@@ -158,4 +158,15 @@ select { width: 200px; padding: 10px; background: #262730; color: white; border:
 .loading { text-align: center; margin-top: 100px; }
 .spinner { border: 4px solid rgba(255,255,255,0.1); border-left-color: #ff4b4b; width: 40px; height: 40px; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
 @keyframes spin { to { transform: rotate(360deg); } }
+:root { --accent: #ff4b4b; --bg: #0e1117; --card: #262730; }
+.main-header { display: flex; flex-direction: column; align-items: center; padding: 20px; border-bottom: 1px solid #333; }
+.logo { font-size: 1.5rem; font-weight: bold; margin-bottom: 15px; color: var(--accent); }
+.tab-content { animation: fadeIn 0.3s ease; max-width: 1200px; margin: auto; padding: 20px; }
+.metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+.card { background: var(--card); padding: 25px; border-radius: 10px; border-bottom: 4px solid var(--accent); font-size: 1.2rem; }
+.table-wrapper { overflow-x: auto; background: var(--card); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 15px; background: #1a1c23; }
+td { padding: 15px; border-top: 1px solid #333; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 </style>
